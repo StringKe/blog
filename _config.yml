@@ -79,3 +79,26 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+giscus:
+  enable: false
+  repo: Stringke/blog # Github repository name
+  repo_id: R_kgDOIW0yKw # Github repository id
+  category: Announcements # Github discussion category
+  category_id: DIC_kwDOIW0yK84CSVIY # Github discussion category id
+  # Available values: pathname | url | title | og:title
+  mapping: pathname
+  # Available values: 0 | 1 
+  reactions_enabled: 1
+   # Available values: 0 | 1 
+  emit_metadata: 1
+  # Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme
+  theme: preferred-color-scheme
+  # Available values: en | zh-C
+  lang: zh-CN
+  # Available value: anonymous
+  crossorigin: anonymous
+  # Place the comment box above the comments
+  input_position: top
+  # Load the comments lazily
+  loading: lazy
