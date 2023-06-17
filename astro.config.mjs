@@ -7,6 +7,11 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeToc from "rehype-toc";
 import rehypeSlug from "rehype-slug";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import remarkDirective from "remark-directive";
+import remarkGemoji from "remark-gemoji";
+import remarkMermaid from "astro-diagram/remark-mermaid";
 
 import { SITE } from "./src/config";
 
@@ -25,10 +30,14 @@ export default /** @type {import("astro").AstroUserConfig} */ defineConfig({
     sitemap(),
   ],
   markdown: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkMermaid],
     rehypePlugins: [
+      remarkMath,
+      rehypeKatex,
       rehypeAccessibleEmojis,
       rehypeHeadingIds,
+      remarkGemoji,
+      remarkDirective,
       [rehypeAutolinkHeadings, { behavior: "append" }],
       [rehypeToc, { headings: ["h1", "h2", "h3"], nav: true }],
       rehypeSlug,
