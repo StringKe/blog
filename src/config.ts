@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "青木",
   desc: "一个程序员",
   title: "青木",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "/assets/og.png",
   lightAndDarkMode: true,
   postPerPage: 3,
 };

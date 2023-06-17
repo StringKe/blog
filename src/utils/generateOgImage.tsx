@@ -1,25 +1,74 @@
-import satori, { SatoriOptions } from "satori";
+import satori, { SatoriOptions, Font } from "satori";
 import { SITE } from "@config";
-import { writeFile } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
 import { Resvg } from "@resvg/resvg-js";
 
+interface Root {
+  zipName: string;
+  manifest: Manifest;
+}
+
+interface Manifest {
+  files: File[];
+  fileRefs: FileRef[];
+}
+
+interface File {
+  filename: string;
+  contents: string;
+}
+
+interface FileRef {
+  filename: string;
+  url: string;
+  date: Date;
+}
+
+interface Date {
+  seconds: number;
+  nanos: number;
+}
+
+const weightMap = {
+  Thin: 100,
+  ExtraLight: 200,
+  Light: 300,
+  Regular: 400,
+  Medium: 500,
+  SemiBold: 600,
+  Bold: 700,
+  ExtraBold: 800,
+  Black: 900,
+} as Record<string, number>;
+
 const fetchFonts = async () => {
-  // Regular Font
-  const fontFileRegular = await fetch(
-    "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
-  );
-  const fontRegular: ArrayBuffer = await fontFileRegular.arrayBuffer();
+  const listResponse = await fetch(
+    "https://fonts.google.com/download/list?family=Noto%20Serif%20SC"
+  ).then(res => res.text());
+  const listJson = JSON.parse(listResponse.replace(")]}'", "")) as Root;
+  const fontFiles = listJson.manifest.fileRefs;
 
-  // Bold Font
-  const fontFileBold = await fetch(
-    "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
-  );
-  const fontBold: ArrayBuffer = await fontFileBold.arrayBuffer();
+  const allFonts = await Promise.all(
+    fontFiles.map(async font => {
+      const fontResponse = await fetch(font.url).then(res => res.arrayBuffer());
+      const fontBuffer = Buffer.from(fontResponse);
+      const weightString = font.filename.match(
+        /(Thin|Light|Regular|Medium|Bold|Black|ExtraBold|SemiBold|ExtraLight)/
+      )?.[1];
+      const weight = weightMap[weightString ?? "Regular"];
 
-  return { fontRegular, fontBold };
+      return {
+        name: "Noto Serif SC",
+        data: fontBuffer,
+        weight: weight,
+        style: "normal",
+      } as Font;
+    })
+  );
+  return allFonts;
 };
 
-const { fontRegular, fontBold } = await fetchFonts();
+const fonts = await fetchFonts();
 
 const ogImage = (text: string) => {
   return (
@@ -119,20 +168,7 @@ const options: SatoriOptions = {
   width: 1200,
   height: 630,
   embedFont: true,
-  fonts: [
-    {
-      name: "IBM Plex Mono",
-      data: fontRegular,
-      weight: 400,
-      style: "normal",
-    },
-    {
-      name: "IBM Plex Mono",
-      data: fontBold,
-      weight: 600,
-      style: "normal",
-    },
-  ],
+  fonts: fonts,
 };
 
 const generateOgImage = async (mytext = SITE.title) => {
@@ -146,7 +182,8 @@ const generateOgImage = async (mytext = SITE.title) => {
 
     console.info("Output PNG Image  :", `${mytext}.png`);
 
-    await writeFile(`./dist/${mytext}.png`, pngBuffer);
+    await mkdir("./dist/assets/post", { recursive: true });
+    await writeFile(`./dist/assets/post/${mytext}.png`, pngBuffer);
   }
 
   return svg;

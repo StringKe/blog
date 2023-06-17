@@ -21,7 +21,10 @@ const breadcrumbList = currentUrlPath
   .slice(1)
   .map(item => {
     if (Object.keys(transformWords).includes(item)) {
-      return transformWords[item];
+      if (Object.prototype.hasOwnProperty.call(transformWords, item)) {
+        // @ts-ignore
+        return transformWords[item];
+      }
     }
     return item;
   });
