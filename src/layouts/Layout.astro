@@ -1,7 +1,6 @@
 ---
 import { SITE } from "@config";
 import "@styles/base.css";
-import { LoadAutoCorrect } from "../components/LoadAutoCorrect";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -81,6 +80,5 @@ const socialImageURL = new URL(
   </head>
   <body>
     <slot />
-    <LoadAutoCorrect client:only="react" />
   </body>
 </html>

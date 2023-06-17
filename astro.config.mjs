@@ -7,22 +7,21 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeToc from "rehype-toc";
 import rehypeSlug from "rehype-slug";
-import wasm from "vite-plugin-wasm";
-import topLevelAwait from "vite-plugin-top-level-await";
 
 import { SITE } from "./src/config";
 
 // https://astro.build/config
-export default /** @type {import('astro').AstroUserConfig} */ defineConfig({
+export default /** @type {import("astro").AstroUserConfig} */ defineConfig({
   site: SITE.website,
+  compressHTML: true,
+  output: "static",
   integrations: [
-    wasm(),
+    react(),
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
-    react(),
     sitemap(),
   ],
   markdown: {
@@ -46,6 +45,5 @@ export default /** @type {import('astro').AstroUserConfig} */ defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
-    plugins: [wasm(), topLevelAwait()],
   },
 });

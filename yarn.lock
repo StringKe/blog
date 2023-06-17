@@ -91,7 +91,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/react@npm:^2.1.3":
+"@astrojs/react@npm:^2.2.1":
   version: 2.2.1
   resolution: "@astrojs/react@npm:2.2.1"
   dependencies:
@@ -772,13 +772,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@huacnlee/autocorrect@npm:^2.6.2":
-  version: 2.6.2
-  resolution: "@huacnlee/autocorrect@npm:2.6.2"
-  checksum: 0204e7d7786a5cd0a1b70a3ead3ff20e4f2cfb32772c4a510c2233e11dbcc29af4825530098bfd17e25c95b24c2e26ef08a85eb81fe42e40ada6245cff7f939c
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.11.10":
   version: 0.11.10
   resolution: "@humanwhocodes/config-array@npm:0.11.10"
@@ -1104,18 +1097,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-virtual@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@rollup/plugin-virtual@npm:3.0.1"
-  peerDependencies:
-    rollup: ^1.20.0||^2.0.0||^3.0.0
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: 93800884956299b071383e1a051323ed38acfffdb64bbd6f3b909a052e506e236eb9022e43b3a039425aa45a33367c9fd50f85a3a867a1259a9862086143bd42
-  languageName: node
-  linkType: hard
-
 "@shuding/opentype.js@npm:1.4.0-beta.0":
   version: 1.4.0-beta.0
   resolution: "@shuding/opentype.js@npm:1.4.0-beta.0"
@@ -1198,7 +1179,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.3.10, @swc/core@npm:^1.3.57":
+"@swc/core@npm:^1.3.57":
   version: 1.3.64
   resolution: "@swc/core@npm:1.3.64"
   dependencies:
@@ -1486,7 +1467,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.59.5":
+"@typescript-eslint/parser@npm:^5.59.11":
   version: 5.59.11
   resolution: "@typescript-eslint/parser@npm:5.59.11"
   dependencies:
@@ -1819,7 +1800,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^2.4.5":
+"astro@npm:^2.6.4":
   version: 2.6.4
   resolution: "astro@npm:2.6.4"
   dependencies:
@@ -2045,18 +2026,17 @@ __metadata:
   resolution: "blog@workspace:."
   dependencies:
     "@astrojs/markdown-remark": ^2.2.1
-    "@astrojs/react": ^2.1.3
+    "@astrojs/react": ^2.2.1
     "@astrojs/rss": ^2.4.1
     "@astrojs/sitemap": ^1.3.1
     "@astrojs/tailwind": ^3.1.2
     "@divriots/jampack": ^0.11.2
-    "@huacnlee/autocorrect": ^2.6.2
     "@resvg/resvg-js": ^2.4.1
     "@tailwindcss/typography": ^0.5.9
     "@types/github-slugger": ^1.3.0
     "@types/react": ^18.2.6
-    "@typescript-eslint/parser": ^5.59.5
-    astro: ^2.4.5
+    "@typescript-eslint/parser": ^5.59.11
+    astro: ^2.6.4
     astro-eslint-parser: ^0.14.0
     autocorrect-node: ^2.6.2
     commitizen: ^4.3.0
@@ -2079,8 +2059,7 @@ __metadata:
     remark-toc: ^8.0.1
     satori: ^0.8.1
     tailwindcss: ^3.3.2
-    vite-plugin-top-level-await: ^1.3.1
-    vite-plugin-wasm: ^3.2.2
+    typescript: 5.0.4
   languageName: unknown
   linkType: soft
 
@@ -8190,6 +8169,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:5.0.4":
+  version: 5.0.4
+  resolution: "typescript@npm:5.0.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 82b94da3f4604a8946da585f7d6c3025fff8410779e5bde2855ab130d05e4fd08938b9e593b6ebed165bda6ad9292b230984f10952cf82f0a0ca07bbeaa08172
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@*#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>":
   version: 5.1.3
   resolution: "typescript@patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=5da071"
@@ -8197,6 +8186,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 6f0a9dca6bf4ce9dcaf4e282aade55ef4c56ecb5fb98d0a4a5c0113398815aea66d871b5611e83353e5953a19ed9ef103cf5a76ac0f276d550d1e7cd5344f61e
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@5.0.4#~builtin<compat/typescript>":
+  version: 5.0.4
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: d26b6ba97b6d163c55dbdffd9bbb4c211667ebebc743accfeb2c8c0154aace7afd097b51165a72a5bad2cf65a4612259344ff60f8e642362aa1695c760d303ac
   languageName: node
   linkType: hard
 
@@ -8384,15 +8383,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "uuid@npm:9.0.0"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 8dd2c83c43ddc7e1c71e36b60aea40030a6505139af6bee0f382ebcd1a56f6cd3028f7f06ffb07f8cf6ced320b76aea275284b224b002b289f89fe89c389b028
-  languageName: node
-  linkType: hard
-
 "uvu@npm:^0.5.0":
   version: 0.5.6
   resolution: "uvu@npm:0.5.6"
@@ -8443,28 +8433,6 @@ __metadata:
     unist-util-stringify-position: ^3.0.0
     vfile-message: ^3.0.0
   checksum: 642cce703afc186dbe7cabf698dc954c70146e853491086f5da39e1ce850676fc96b169fcf7898aa3ff245e9313aeec40da93acd1e1fcc0c146dc4f6308b4ef9
-  languageName: node
-  linkType: hard
-
-"vite-plugin-top-level-await@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "vite-plugin-top-level-await@npm:1.3.1"
-  dependencies:
-    "@rollup/plugin-virtual": ^3.0.1
-    "@swc/core": ^1.3.10
-    uuid: ^9.0.0
-  peerDependencies:
-    vite: ">=2.8"
-  checksum: 89fe789b3e2c4fccf96e547f62493f13345502a6439e164be5a82a05354bc9ff63e6ce64fbd94f81bcaefdc9282bc0cb579dfcdcd3df1df5041109ca0216c332
-  languageName: node
-  linkType: hard
-
-"vite-plugin-wasm@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "vite-plugin-wasm@npm:3.2.2"
-  peerDependencies:
-    vite: ^2 || ^3 || ^4
-  checksum: ed9b56b3cd47e6376c21592f4d24f818334d5796226f6c1dfca89a4f744d69a34cb85dd5e06f164a2670827113ccfa5f03d0361e51210012706123374b0f8277
   languageName: node
   linkType: hard
 
