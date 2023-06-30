@@ -6,11 +6,8 @@ postSlug: markdown-test
 recommend: false
 draft: false
 tags:
-  - JavaScript
-  - ReactJS
-  - ContextAPI
-  - Styled-Components
-  - TypeScript
+  - Markdown
+  - Test
 description:
   "Markdown 使用说明，以及测试文档"
 ---
